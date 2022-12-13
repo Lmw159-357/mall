@@ -6,7 +6,7 @@
     <result column="order_no" jdbcType="VARCHAR" property="orderNo" />
     <result column="product_id" jdbcType="INTEGER" property="productId" />
     <result column="product_name" jdbcType="VARCHAR" property="productName" />
-    <result column="procduct_img" jdbcType="VARCHAR" property="procductImg" />
+    <result column="product_img" jdbcType="VARCHAR" property="productImg" />
     <result column="unit_price" jdbcType="INTEGER" property="unitPrice" />
     <result column="quantity" jdbcType="INTEGER" property="quantity" />
     <result column="total_price" jdbcType="INTEGER" property="totalPrice" />
@@ -14,7 +14,7 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, order_no, product_id, product_name, procduct_img, unit_price, quantity, total_price, 
+    id, order_no, product_id, product_name, product_img, unit_price, quantity, total_price, 
     create_time, update_time
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -29,11 +29,11 @@
   </delete>
   <insert id="insert" parameterType="com.imooc.mall.model.pojo.OrderItem">
     insert into imooc_mall_order_item (id, order_no, product_id, 
-      product_name, procduct_img, unit_price, 
+      product_name, product_img, unit_price, 
       quantity, total_price, create_time, 
       update_time)
     values (#{id,jdbcType=INTEGER}, #{orderNo,jdbcType=VARCHAR}, #{productId,jdbcType=INTEGER}, 
-      #{productName,jdbcType=VARCHAR}, #{procductImg,jdbcType=VARCHAR}, #{unitPrice,jdbcType=INTEGER}, 
+      #{productName,jdbcType=VARCHAR}, #{productImg,jdbcType=VARCHAR}, #{unitPrice,jdbcType=INTEGER},
       #{quantity,jdbcType=INTEGER}, #{totalPrice,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
       #{updateTime,jdbcType=TIMESTAMP})
   </insert>
@@ -52,8 +52,8 @@
       <if test="productName != null">
         product_name,
       </if>
-      <if test="procductImg != null">
-        procduct_img,
+      <if test="productImg != null">
+        product_img,
       </if>
       <if test="unitPrice != null">
         unit_price,
@@ -84,8 +84,8 @@
       <if test="productName != null">
         #{productName,jdbcType=VARCHAR},
       </if>
-      <if test="procductImg != null">
-        #{procductImg,jdbcType=VARCHAR},
+      <if test="productImg != null">
+        #{productImg,jdbcType=VARCHAR},
       </if>
       <if test="unitPrice != null">
         #{unitPrice,jdbcType=INTEGER},
@@ -116,8 +116,8 @@
       <if test="productName != null">
         product_name = #{productName,jdbcType=VARCHAR},
       </if>
-      <if test="procductImg != null">
-        procduct_img = #{procductImg,jdbcType=VARCHAR},
+      <if test="productImg != null">
+        product_img = #{productImg,jdbcType=VARCHAR},
       </if>
       <if test="unitPrice != null">
         unit_price = #{unitPrice,jdbcType=INTEGER},
@@ -142,7 +142,7 @@
     set order_no = #{orderNo,jdbcType=VARCHAR},
       product_id = #{productId,jdbcType=INTEGER},
       product_name = #{productName,jdbcType=VARCHAR},
-      procduct_img = #{procductImg,jdbcType=VARCHAR},
+      product_img = #{productImg,jdbcType=VARCHAR},
       unit_price = #{unitPrice,jdbcType=INTEGER},
       quantity = #{quantity,jdbcType=INTEGER},
       total_price = #{totalPrice,jdbcType=INTEGER},
@@ -150,4 +150,10 @@
       update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="selectByOrderNo" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from imooc_mall_order_item
+    where order_no = #{orderNo}
+  </select>
 </mapper>

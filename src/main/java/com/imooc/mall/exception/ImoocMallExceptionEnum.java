@@ -20,16 +20,18 @@ public enum ImoocMallExceptionEnum {
     DELETE_ERROR(10013,"删除失败"),
     MKDIR_FAILED(10014,"文件夹创建失败" ),
     UPLOAD_FAILED(10015,"文件上传失败"),
-
     NOT_SALE(10016,"商品状态不可售"),
     NOT_ENOUGH(10017,"商品库存不足"),
+    CART_SELECTED_EMPTY(10018,"购物车勾选的商品为空"),
+    NO_ENUM(10019,"未找到对应的订单状态"),
+    NO_ORDER(10020,"订单不存在"),
+    NOT_YOUR_ORDER(10020,"订单不属于你"),
+    WRONG_ORDER_STATUS(10021,"当前订单状态，不允许取消"),
     SYSTEM_ERROR(20001,"系统异常");
 
-
-
-            /**
-             * 异常码
-             */
+    /**
+     * 异常码
+     */
     Integer code;
     /**
      * 异常信息

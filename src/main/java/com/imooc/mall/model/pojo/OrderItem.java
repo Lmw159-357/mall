@@ -11,7 +11,7 @@ public class OrderItem {
 
     private String productName;
 
-    private String procductImg;
+    private String productImg;
 
     private Integer unitPrice;
 
@@ -55,12 +55,12 @@ public class OrderItem {
         this.productName = productName == null ? null : productName.trim();
     }
 
-    public String getProcductImg() {
-        return procductImg;
+    public String getProductImg() {
+        return productImg;
     }
 
-    public void setProcductImg(String procductImg) {
-        this.procductImg = procductImg == null ? null : procductImg.trim();
+    public void setProductImg(String procductImg) {
+        this.productImg = procductImg == null ? null : procductImg.trim();
     }
 
     public Integer getUnitPrice() {
